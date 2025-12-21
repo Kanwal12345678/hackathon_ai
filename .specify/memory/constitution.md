@@ -1,165 +1,63 @@
-<!-- Sync Impact Report:
-Version change: None → 1.0.0
-List of modified principles: All principles defined from user input.
-Added sections: Name and Identity, Vision, Mission, Core Values, Project Scope and Architecture, Roles and Responsibilities, Decision-Making Process, Ethics, Compliance, and Data Privacy, Open Source and Future Expansion, Amendments and Governance, Closing Statement.
-Removed sections: None
-Templates requiring updates:
-- .specify/templates/plan-template.md: ⚠ pending
-- .specify/templates/spec-template.md: ⚠ pending
-- .specify/templates/tasks-template.md: ⚠ pending
-- .specify/templates/commands/*.md: ⚠ pending
+<!-- SYNC IMPACT REPORT
+Version Change: N/A -> 1.0.0
+Modified Principles: N/A
+Added Sections: All principles and sections added
+Removed Sections: N/A
+Templates Requiring Updates: N/A (first version)
 Follow-up TODOs: None
 -->
-# Physical AI & Humanoid Robotics – An AI-Native Learning Platform Constitution
 
-## 1. Name and Identity
+# Physical AI — AI-Native Textbook Constitution
 
-The official name of this initiative shall be:
+## Vision
+Teach beginners-to-intermediate learners to design, simulate, and deploy Physical AI systems using AI agents, with a hands-on, simulation-first, specification-driven approach.
 
-“Physical AI & Humanoid Robotics – An AI-Native Learning Platform”
+## Core Principles
 
-## 2. Vision
+### 1. Specification-First Thinking
+All learning activities and system designs must begin with clear, detailed specifications before implementation. This ensures learners develop systematic thinking patterns essential for building robust Physical AI systems. Rationale: Specification-first methodology reduces errors, improves communication, and creates transferable skills applicable to real-world AI development workflows.
 
-Our vision is to shape the future of education where humans, intelligent software agents, and humanoid robots collaborate productively.
+### 2. Hands-On, Simulation-First Learning
+Learning experiences must prioritize practical, hands-on exercises that leverage simulation environments before any hardware deployment. Rationale: Simulation-first approach makes Physical AI education accessible to all learners regardless of hardware availability while providing safe, repeatable learning environments.
 
-We aim to:
+### 3. AI as a Co-Creator
+AI agents must be positioned as collaborative partners in the learning and creation process, not just tools. Learners should understand how to work synergistically with AI systems. Rationale: Modern Physical AI development requires fluency in human-AI collaboration, making this partnership a foundational skill for practitioners.
 
-*   Democratize access to advanced knowledge in Physical AI and Humanoid Robotics
-*   Enable learners to acquire future-ready skills through AI-native learning experiences
-*   Establish a scalable foundation for AI-powered textbooks across multiple disciplines
+### 4. Progressive Skill Building
+Content must be structured to build skills progressively, with each concept reinforcing and expanding upon previous learning. Rationale: Progressive skill building ensures learners develop solid foundations before tackling advanced concepts, improving retention and practical application ability.
 
-## 3. Mission
+### 5. Practical System Design
+All theoretical concepts must connect directly to practical system design principles that learners can apply to real-world problems. Rationale: Bridging theory and practice ensures learners acquire transferable skills relevant to industry applications and research.
 
-The mission of this project is to design and deliver a comprehensive, interactive, and AI-native textbook that:
+## Success Criteria
+- Learners complete exercises and build deployable AI systems
+- Understand agent architecture and specifications
+- Knowledge is transferable to real-world workflows
 
-*   Teaches Physical AI & Humanoid Robotics in a structured and practical manner
-*   Integrates intelligent agents to assist learning through contextual understanding
-*   Adapts content dynamically based on learner background and preferences
-*   Supports multilingual learning, including English and Urdu
+## Constraints
+- Beginner-friendly, simple language
+- Docusaurus-compatible, modular Markdown
+- Simulation-first, minimal hardware dependency
+- Emphasize human-AI collaboration
+- Modular and reusable content
 
-## 4. Core Values
-### 4.1 Transparency
+## Stakeholders
+- Students & learners
+- Educators & instructors
+- Curriculum designers
+- AI tool developers
+- Industry practitioners
 
-All development processes, documentation, and codebases shall be openly documented and version-controlled.
-
-### 4.2 Accessibility
-
-The platform shall be designed for learners at beginner, intermediate, and advanced levels.
-
-### 4.3 Ethical Responsibility
-
-All content and technologies will be developed and applied responsibly, prioritizing human safety, dignity, and societal benefit.
-
-### 4.4 Continuous Improvement
-
-The project shall evolve continuously through research, feedback, and technological advancements.
-
-## 5. Project Scope and Architecture
-
-The project shall consist of the following core components:
-
-### 5.1 AI-Native Textbook
-
-*   Built using Docusaurus
-*   Authored with Spec-Kit Plus and Claude Code
-*   Modular, chapter-based structure for scalability
-
-### 5.2 Integrated RAG Chatbot
-
-*   Embedded within the textbook interface
-*   Capable of answering questions using book content only
-*   Supports answering questions based on user-selected text
-*   Implemented using:
-    *   OpenAI Agents / ChatKit SDKs
-    *   FastAPI
-    *   Neon Serverless PostgreSQL
-    *   Qdrant Cloud (Free Tier)
-
-### 5.3 User Authentication and Profiling
-
-*   Signup and Signin implemented using Better Auth
-*   Collection of learner background information to enable personalization
-
-### 5.4 Personalized Learning Experience
-
-*   Content adaptation based on user expertise (beginner, intermediate, advanced)
-*   One-click personalization option at the start of each chapter
-
-### 5.5 Multilingual Support
-
-*   One-click Urdu translation option available at the start of each chapter
-
-## 6. Roles and Responsibilities
-
-Depending on team composition, the following roles may be assigned:
-
-### Project Lead
-
-*   Strategic planning and coordination
-*   Final decision-making authority
-*   Liaison with Panaversity stakeholders
-
-### AI Content Engineer
-
-*   Development of textbook content using Claude Code
-*   Creation of reusable AI agents and skills
-
-### Backend & AI Systems Engineer
-
-*   Development of the RAG chatbot infrastructure
-*   Database, API, and vector search implementation
-
-### Frontend & UX Engineer
-
-*   User interface development using Docusaurus
-*   Implementation of personalization and translation controls
-
-(In the case of a solo participant, multiple roles may be fulfilled by a single individual.)
-
-## 7. Decision-Making Process
-
-All technical and architectural decisions shall be based on research, testing, and documented rationale.
-
-Content-related and ethical decisions shall prioritize learner impact and societal responsibility.
-
-Any conflicts shall be resolved through structured discussion and evidence-based reasoning.
-
-## 8. Ethics, Compliance, and Data Privacy
-
-*   All content shall be original or properly referenced
-*   No plagiarized or unlicensed material shall be used
-*   User data shall be handled securely and ethically
-*   AI systems shall not be used to promote harm, violence, or unethical practices
-
-## 9. Open Source and Future Expansion
-
-The project shall support open-source collaboration where feasible
-
-The platform is designed to scale toward:
-
-*   O/A Level education
-*   Science and Engineering curricula
-*   Medical and Healthcare AI education
-
-## 10. Amendments and Governance
-
-This constitution may be amended as the project evolves
-
-All amendments shall be documented and justified
-
-Changes shall align with the project’s vision, mission, and ethical standards
-
-## 11. Closing Statement
-
-This constitution represents a commitment to building not just a textbook, but a next-generation AI-native education ecosystem that prepares learners for the future of work and intelligent systems.
-
-“We are not merely documenting knowledge;
-we are designing how future generations will learn, interact, and innovate with AI.”
+## Brand Voice
+- Clear, professional, approachable
+- Encouraging curiosity and experimentation
+- Specification-focused, AI-native perspective
+- Minimal jargon, introduce terms only when needed
 
 ## Governance
-
-All technical and architectural decisions shall be based on research, testing, and documented rationale.
-Content-related and ethical decisions shall prioritize learner impact and societal responsibility.
-Any conflicts shall be resolved through structured discussion and evidence-based reasoning.
-
-**Version**: 1.0.0 | **Ratified**: 2025-12-17 | **Last Amended**: 2025-12-17
+- Ratification Date: 2025-01-01
+- Last Amended Date: 2025-12-22
+- Constitution Version: 1.0.0
+- Amendment Procedure: Changes require explicit stakeholder review and approval
+- Versioning Policy: Follow semantic versioning for all updates
+- Compliance Review: Regular reviews ensure content remains aligned with principles
