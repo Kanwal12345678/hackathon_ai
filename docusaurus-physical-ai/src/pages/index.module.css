@@ -4,15 +4,25 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
+  padding: 6rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, #4c1d95 0%, #db2777 100%); /* Dark purple to pink gradient */
+  margin-bottom: 4rem;
+  border-radius: 0 0 var(--ifm-global-radius) var(--ifm-global-radius);
+  box-shadow: var(--ifm-global-shadow);
+  position: relative;
+  color: white; /* Ensure text remains readable on dark background */
+}
+
+html[data-theme='dark'] .heroBanner {
+  background: linear-gradient(135deg, #4c1d95 0%, #db2777 100%); /* Dark purple to pink gradient for dark mode as well */
 }
 
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2rem 0;
+    padding: 3rem 0;
   }
 }
 
@@ -20,4 +30,66 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Enhanced hero title animation */
+.hero__title {
+  animation: fadeInUp 0.8s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.hero__subtitle {
+  animation: fadeInUp 0.8s ease-out 0.2s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.buttons {
+  animation: fadeInUp 0.8s ease-out 0.4s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gradient background effect */
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--ifm-color-primary), var(--ifm-color-secondary));
+  border-radius: var(--ifm-global-radius) var(--ifm-global-radius) 0 0;
+}
+
+html[data-theme='dark'] .heroBanner::before {
+  background: linear-gradient(90deg, var(--ifm-color-primary), var(--ifm-color-secondary));
+}
+
+/* Subtle background pattern */
+.heroBanner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at 10% 20%, rgba(236, 72, 153, 0.05) 0%, transparent 20%),
+                    radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 20%);
+  pointer-events: none;
+  border-radius: 0 0 var(--ifm-global-radius) var(--ifm-global-radius);
 }

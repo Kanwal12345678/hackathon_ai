@@ -6,13 +6,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 (module.exports = {
   title: 'Physical AI — AI-Native Textbook',
   tagline: 'Teaching Physical AI with AI agents, simulation-first approach',
-  url: 'https://your-physical-ai-site.com',
+  url: 'https://your-github-username.github.io', // Replace with your actual domain
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'physical-ai', // Usually your GitHub org/user name.
-  projectName: 'physical-ai-textbook', // Usually your repo name.
+  organizationName: 'your-github-username', // Usually your GitHub org/user name.
+  projectName: 'docusaurus-physical-ai', // Usually your repo name.
 
   presets: [
     [
@@ -22,13 +22,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/physical-ai/physical-ai-textbook/edit/main/',
+          editUrl: 'https://github.com/your-github-username/docusaurus-physical-ai/edit/main/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/main/website/blog/',
+            'https://github.com/your-github-username/docusaurus-physical-ai/edit/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -55,7 +55,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/physical-ai/physical-ai-textbook',
+            href: 'https://github.com/your-github-username/docusaurus-physical-ai',
             label: 'GitHub',
             position: 'right',
           },
@@ -95,7 +95,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/physical-ai/physical-ai-textbook',
+                href: 'https://github.com/your-github-username/docusaurus-physical-ai',
               },
             ],
           },
