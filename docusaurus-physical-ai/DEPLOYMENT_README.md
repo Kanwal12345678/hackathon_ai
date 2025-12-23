@@ -41,6 +41,48 @@ Before deploying, update the following in `docusaurus.config.js`:
 - Replace `your-github-username` with your actual GitHub username
 - Update `organizationName` and `projectName` as needed
 - Adjust the `url` to match your hosting domain
+- For Vercel deployment, ensure `trailingSlash: false` is set
+- For Vercel deployment, ensure `baseUrl: '/'` is set
+
+## Vercel Deployment Specific Configuration
+
+When deploying to Vercel, the following configuration is required to fix 404 errors:
+
+1. **docusaurus.config.js**:
+   - Set `url` to your Vercel domain (e.g., `https://your-project-name.vercel.app`)
+   - Set `trailingSlash: false` to ensure proper routing
+   - Ensure `baseUrl: '/'` for root domain deployment
+
+2. **vercel.json** (created in project root):
+   ```json
+   {
+     "outputDirectory": "build",
+     "rewrites": [
+       {
+         "source": "/(.*)",
+         "destination": "/index.html"
+       }
+     ]
+   }
+   ```
+   This file is required to handle client-side routing for Docusaurus on Vercel.
+
+## Rollback Procedure
+
+If the Vercel deployment causes issues, follow these rollback steps:
+
+1. **Revert docusaurus.config.js changes**:
+   - Restore the original `url` value
+   - Remove or comment out the `trailingSlash: false` setting if causing issues
+   - Ensure `baseUrl: '/'` remains set
+
+2. **Remove vercel.json** (if created):
+   - Delete the `vercel.json` file from the project root
+   - This will revert to Vercel's default deployment behavior
+
+3. **Redeploy with original configuration**:
+   - Commit the reverted changes
+   - Push to trigger a new deployment
 
 ## About This Textbook
 

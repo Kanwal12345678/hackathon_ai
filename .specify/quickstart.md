@@ -1,124 +1,98 @@
-# Quickstart Guide: Physical AI Textbook
+# Quickstart Guide: Docusaurus Vercel Deployment Fix
 
 ## Overview
-This guide provides quick instructions for working with the Physical AI — AI-Native Textbook, which consists of 8 chapters with 5 lessons each (40 lessons total) in Docusaurus-compatible Markdown format.
+This guide provides step-by-step instructions to fix the 404 error when deploying a Docusaurus site to Vercel. The issue occurs because Docusaurus uses client-side routing, which requires special server configuration to handle direct URL access.
 
-## Project Structure
-```
-textbook_docs/
-├── index.md (main table of contents)
-├── chapter_1/ to chapter_8/ (8 chapter directories)
-    └── lesson_X_Y_*.md (5 lessons per chapter)
-```
+## Prerequisites
+- Node.js installed on your system
+- Docusaurus project set up
+- Access to Vercel account
+- Git repository for the project
 
-## Getting Started
+## Step 1: Update docusaurus.config.js
 
-### 1. Setup Docusaurus Environment
-```bash
-# Install Docusaurus globally
-npm install -g @docusaurus/init@latest
+1. Open `docusaurus.config.js` in your project root
+2. Update the `url` field with your Vercel deployment URL:
+   ```javascript
+   url: 'https://your-project-name.vercel.app', // Replace with your actual Vercel URL
+   ```
+3. Set `trailingSlash` to false:
+   ```javascript
+   trailingSlash: false,
+   ```
+4. Ensure `baseUrl` is set correctly (typically '/' for root deployments):
+   ```javascript
+   baseUrl: '/',
+   ```
 
-# Create new Docusaurus site
-npx @docusaurus/init@latest --init-path ./physical-ai-textbook --type classic
+## Step 2: Create vercel.json
 
-# Copy textbook content
-cp -r textbook_docs/* physical-ai-textbook/docs/
-```
+1. Create a new file named `vercel.json` in your project root
+2. Add the following configuration:
+   ```json
+   {
+     "outputDirectory": "build",
+     "rewrites": [
+       {
+         "source": "/(.*)",
+         "destination": "/index.html"
+       }
+     ]
+   }
+   ```
 
-### 2. File Structure Navigation
-- All lessons follow the naming pattern: `lesson_{chapter}_{lesson}_{topic}.md`
-- Each chapter directory contains exactly 5 lessons
-- The `index.md` file provides the main navigation structure
+## Step 3: Test Locally
 
-### 3. Content Format
-Each lesson follows this structure:
-```markdown
----
-title: "Lesson Title"
-sidebar_label: "Short Lesson Title"
-description: "2-line summary of the lesson"
----
+1. Build your Docusaurus site:
+   ```bash
+   npm run build
+   ```
+2. Serve the build locally to test routing:
+   ```bash
+   npx serve build
+   ```
+3. Test various routes by navigating directly to different pages (e.g., /docs/intro, /docs/chapter1/lesson1)
 
-## Learning Objectives
-- 3-5 bullet points
+## Step 4: Deploy to Vercel
 
-## Overview
-Short intro paragraph
+1. Commit your changes:
+   ```bash
+   git add .
+   git commit -m "Fix: Configure Docusaurus for Vercel deployment"
+   git push
+   ```
+2. If not already connected, link your project to Vercel:
+   ```bash
+   vercel
+   ```
+3. Follow the prompts to configure your project with:
+   - Build command: `npm run build`
+   - Output directory: `build`
 
-## Theory
-Concept explanations
+## Verification
 
-## Hands-On / Exercise
-Step-by-step instructions (simulation-first)
-
-## Summary
-2-3 key takeaways
-
-## References / Resources
-Optional links
-```
-
-## Working with the Content
-
-### Adding New Content
-1. Place new lessons in the appropriate chapter directory
-2. Follow the naming convention: `lesson_X_Y_description.md`
-3. Include all required YAML frontmatter
-4. Follow the standard lesson structure
-
-### Modifying Existing Content
-1. Locate the lesson file in the appropriate chapter directory
-2. Edit content while maintaining the lesson structure
-3. Ensure changes align with Physical AI constitution principles
-
-### Validating Content
-- Ensure all lessons follow the simulation-first approach
-- Verify beginner-friendly language is maintained
-- Confirm AI collaboration is emphasized
-- Check that content aligns with target audience
-
-## Deployment
-
-### Local Development
-```bash
-cd physical-ai-textbook
-npm start
-```
-
-### Build for Production
-```bash
-npm run build
-```
-
-### Docusaurus Configuration
-Update `docusaurus.config.js` to include the textbook_docs directory in the docs plugin configuration.
-
-## Best Practices
-
-### Content Creation
-- Maintain beginner-friendly language throughout
-- Emphasize simulation-first learning
-- Include AI agent collaboration in exercises
-- Follow progressive skill building approach
-- Ensure content aligns with Physical AI constitution
-
-### File Management
-- Use descriptive but concise file names
-- Maintain consistent directory structure
-- Keep content modular for RAG indexing
-- Use proper YAML frontmatter in all files
+After deployment, verify that:
+- Homepage loads correctly
+- All documentation pages load without 404 errors
+- Direct URL access to any route works
+- Page refresh works on all routes
 
 ## Troubleshooting
 
-### Common Issues
-- Missing YAML frontmatter in lesson files
-- Incorrect file naming conventions
-- Broken navigation links
-- Non-Docusaurus compatible Markdown syntax
+### Still getting 404 errors?
+- Verify that `trailingSlash: false` is set in docusaurus.config.js
+- Check that vercel.json has the correct rewrite rules
+- Ensure the outputDirectory in vercel.json matches your Docusaurus build output
 
-### Validation Checklist
-- [ ] All 40 lessons present and accessible
-- [ ] Navigation works correctly
-- [ ] All content follows required structure
-- [ ] Content aligns with Physical AI principles
-- [ ] Beginner-friendly language maintained
+### Build fails on Vercel?
+- Verify that your package.json has all necessary dependencies
+- Check that build command is correctly set in Vercel project settings
+- Ensure Node.js version is compatible with your dependencies
+
+## Next Steps
+
+Once the deployment is working correctly:
+- Set up a custom domain if desired
+- Configure SSL certificate
+- Set up continuous deployment from your Git repository
+- Add environment variables if needed for different deployment stages

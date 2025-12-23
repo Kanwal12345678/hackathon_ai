@@ -1,181 +1,194 @@
-# Implementation Plan: Physical AI — AI-Native Textbook
+# Implementation Plan: Fix Docusaurus 404 Error on Vercel Deployment
+
+## Feature
+**Feature Name:** Fix Docusaurus 404 Error on Vercel Deployment
+**Feature ID:** 1-docusaurus-vercel
+**Created:** 2025-12-23
+**Status:** Planning
 
 ## Technical Context
 
-**Project Overview**: Create a comprehensive Physical AI textbook with 8 chapters and 5 lessons per chapter (40 lessons total) in Docusaurus-compatible Markdown format.
+### Current Architecture
+- **Platform**: Docusaurus 2.x static site generator
+- **Hosting**: Vercel deployment platform
+- **Build System**: Node.js with npm
+- **Current Issue**: Client-side routing causes 404 errors on direct URL access or page refresh
 
-**Target Platform**: Docusaurus documentation site
-**Content Format**: Markdown with YAML frontmatter for Docusaurus
-**Structure**: 8 chapters × 5 lessons each = 40 lessons
-**Audience**: Beginners-to-intermediate learners
-**Approach**: Simulation-first, specification-driven, AI collaboration-focused
+### Technology Stack
+- **Framework**: Docusaurus (latest version)
+- **Deployment**: Vercel
+- **Configuration**: JavaScript (docusaurus.config.js), JSON (vercel.json)
+- **Static Assets**: HTML, CSS, JavaScript bundles
 
-**Technology Stack**:
-- Markdown for content creation
-- Docusaurus for documentation generation
-- Git for version control
-- Standard web technologies for deployment
+### Known Unknowns
+- Current `docusaurus.config.js` URL configuration values
+- Specific domain/subdirectory deployment requirements
+- Current Vercel project settings
+- Exact Vercel build output directory configuration
 
-**Constraints**:
-- Follow Physical AI constitution principles
-- Beginner-friendly language
-- Simulation-first approach (no early hardware dependency)
-- Modular content for RAG indexing
-- Docusaurus compatibility
+### Dependencies
+- Docusaurus framework (already installed in project)
+- Node.js runtime environment
+- Vercel CLI or GitHub integration for deployment
+- Git repository for version control
 
 ## Constitution Check
 
-This implementation plan aligns with the Physical AI constitution:
+### Alignment with Core Principles
+- **Specification-First Thinking**: This implementation follows the specification created in the previous step
+- **Hands-On, Simulation-First Learning**: The fix will ensure the Physical AI textbook site functions properly for learners
+- **AI as a Co-Creator**: The solution supports the AI-native textbook platform
+- **Progressive Skill Building**: Proper site functionality enables learners to progress through content
+- **Practical System Design**: The configuration changes represent practical system administration skills
 
-✅ **Specification-First Thinking**: Content will be structured with clear learning objectives and systematic progression
-✅ **Hands-On, Simulation-First Learning**: All lessons will include simulation-based exercises
-✅ **AI as a Co-Creator**: Content emphasizes collaboration with AI agents
-✅ **Progressive Skill Building**: Structure builds complexity gradually across chapters
-✅ **Practical System Design**: Content focuses on practical applications
+### Potential Violations
+- None identified - all changes align with constitution principles
+
+### Compliance Verification
+- Solution maintains beginner-friendly approach
+- No changes to core learning content
+- Improves accessibility of educational materials
 
 ## Gates
 
 ### Gate 1: Technical Feasibility
-- [x] Docusaurus-compatible Markdown format is technically feasible
-- [x] 8 chapters with 5 lessons each is within reasonable scope
-- [x] Content can be structured for RAG indexing
+✅ **PASSED** - Docusaurus and Vercel support the required configuration changes
 
-### Gate 2: Constitution Compliance
-- [x] All content will follow Physical AI constitution principles
-- [x] Simulation-first approach will be maintained throughout
-- [x] AI collaboration will be emphasized in all chapters
+### Gate 2: Constitution Alignment
+✅ **PASSED** - Solution aligns with all core principles
 
-### Gate 3: Quality Standards
-- [x] Beginner-friendly language will be used throughout
-- [x] Content will be modular and reusable
-- [x] Each lesson will follow the required structure
+### Gate 3: Stakeholder Impact
+✅ **PASSED** - Solution benefits all stakeholders by improving site accessibility
 
-## Phase 0: Research
+## Phase 0: Outline & Research
 
-### Research Tasks Completed
-- [x] Docusaurus Markdown format requirements
-- [x] Physical AI textbook structure and organization
-- [x] RAG-friendly content creation best practices
-- [x] Simulation-first learning methodology
-- [x] AI collaboration techniques in educational contexts
+### Research Tasks
 
-## Phase 1: Design & Architecture
+#### 1. Current Configuration Analysis
+**Task**: Analyze current docusaurus.config.js and identify specific configuration issues
+**Status**: COMPLETED
 
-### Data Model: textbook_docs/
+**Findings**:
+- Current config has placeholder URL: `https://your-github-username.github.io`
+- baseUrl is set to `/` (correct for root deployment)
+- Missing trailingSlash configuration (needs to be set to false for Vercel)
+
+#### 2. Vercel Configuration Requirements
+**Task**: Research Vercel-specific configuration requirements for Docusaurus
+**Status**: COMPLETED
+
+**Findings**:
+- Vercel requires vercel.json for custom routing
+- Rewrites are needed to handle client-side routing
+- Build output directory should be `build`
+
+#### 3. Best Practices for Docusaurus on Vercel
+**Task**: Research best practices for deploying Docusaurus sites to Vercel
+**Status**: COMPLETED
+
+**Findings**:
+- Set trailingSlash: false in docusaurus.config.js
+- Use rewrites in vercel.json to redirect all routes to index.html
+- Ensure build command is `npm run build`
+- Output directory should be `build`
+
+## Phase 1: Design & Contracts
+
+### 1.1 Docusaurus Configuration Changes
+
+#### docusaurus.config.js Updates
 ```
-textbook_docs/
-├── index.md (table of contents)
-├── chapter_1/
-│   ├── lesson_1_1_what_is_physical_ai.md
-│   ├── lesson_1_2_history_evolution_physical_ai.md
-│   ├── lesson_1_3_applications_use_cases.md
-│   ├── lesson_1_4_introduction_ai_agents.md
-│   └── lesson_1_5_setting_up_development_environment.md
-├── chapter_2/
-│   ├── lesson_2_1_principles_specification_first_thinking.md
-│   ├── lesson_2_2_writing_clear_system_specifications.md
-│   ├── lesson_2_3_specification_validation_techniques.md
-│   ├── lesson_2_4_collaborative_specification_development.md
-│   └── lesson_2_5_specification_versioning_management.md
-├── chapter_3/
-│   ├── lesson_3_1_introduction_simulation_platforms.md
-│   ├── lesson_3_2_building_basic_simulation_environments.md
-│   ├── lesson_3_3_physics_modeling_simulation.md
-│   ├── lesson_3_4_environment_testing_validation.md
-│   └── lesson_3_5_optimization_techniques_simulation.md
-├── chapter_4/
-│   ├── lesson_4_1_understanding_ai_agent_capabilities.md
-│   ├── lesson_4_2_designing_human_ai_collaboration_workflows.md
-│   ├── lesson_4_3_prompt_engineering_physical_ai_tasks.md
-│   ├── lesson_4_4_iterative_development_ai_agents.md
-│   └── lesson_4_5_evaluating_ai_agent_contributions.md
-├── chapter_5/
-│   ├── lesson_5_1_fundamentals_movement_control.md
-│   ├── lesson_5_2_simple_motion_planning.md
-│   ├── lesson_5_3_control_systems_feedback.md
-│   ├── lesson_5_4_path_planning_algorithms.md
-│   └── lesson_5_5_movement_optimization.md
-├── chapter_6/
-│   ├── lesson_6_1_introduction_sensor_types.md
-│   ├── lesson_6_2_sensor_data_processing.md
-│   ├── lesson_6_3_perception_systems_simulation.md
-│   ├── lesson_6_4_sensor_fusion_techniques.md
-│   └── lesson_6_5_perception_based_decision_making.md
-├── chapter_7/
-│   ├── lesson_7_1_complex_system_architecture.md
-│   ├── lesson_7_2_multi_agent_physical_systems.md
-│   ├── lesson_7_3_learning_adaptation.md
-│   ├── lesson_7_4_safety_robustness.md
-│   └── lesson_7_5_performance_optimization.md
-├── chapter_8/
-│   ├── lesson_8_1_transitioning_simulation_reality.md
-│   ├── lesson_8_2_hardware_integration_considerations.md
-│   ├── lesson_8_3_real_world_testing_strategies.md
-│   ├── lesson_8_4_deployment_best_practices.md
-│   └── lesson_8_5_future_physical_ai.md
+// Update the url to the actual domain
+url: 'https://your-project-name.vercel.app',  // Replace with actual Vercel domain
+
+// Ensure trailingSlash is set correctly for Vercel
+trailingSlash: false,  // Required for proper routing on Vercel
 ```
 
-### Content Structure (YAML Frontmatter)
-Each lesson will follow this format:
-```yaml
----
-title: "Lesson Title"
-sidebar_label: "Short Lesson Title"
-description: "2-line summary of the lesson"
----
+### 1.2 Vercel Configuration Design
+
+#### vercel.json Configuration
+```
+{
+  "outputDirectory": "build",
+  "routes": [
+    {
+      "src": "/[^.]*",
+      "dest": "/",
+      "status": 200
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
 ```
 
-### Required Sections per Lesson
-1. Learning Objectives (3-5 bullet points)
-2. Overview (short intro paragraph)
-3. Theory (explanation of concepts)
-4. Hands-On / Exercise (step-by-step simulation instructions)
-5. Summary (key takeaways)
-6. References / Resources (optional links)
+### 1.3 Build Process Verification
 
-## Phase 2: Implementation Tasks
+#### Build Configuration
+- **Build Command**: `npm run build`
+- **Output Directory**: `build`
+- **Framework Preset**: Other (since we're using Docusaurus)
 
-### Task 1: Create Directory Structure
-- [x] Create textbook_docs/ directory
-- [x] Create 8 chapter subdirectories (chapter_1/ through chapter_8/)
+## Phase 2: Implementation Steps
 
-### Task 2: Generate Lesson Files
-- [x] Create 40 lesson Markdown files (8 chapters × 5 lessons)
-- [x] Apply Docusaurus-compatible YAML frontmatter to each
-- [x] Include all required sections in each lesson
-- [x] Ensure content follows Physical AI constitution
+### Step 1: Update docusaurus.config.js
+1. Update the `url` field to the correct Vercel deployment URL
+2. Add or update `trailingSlash: false` setting
+3. Verify `baseUrl: '/'` is correctly set
 
-### Task 3: Content Validation
-- [x] Verify all lessons follow the required structure
-- [x] Confirm beginner-friendly language throughout
-- [x] Validate simulation-first approach in all exercises
-- [x] Check AI collaboration emphasis in all content
+### Step 2: Create vercel.json
+1. Create vercel.json file in the project root
+2. Configure rewrites to handle client-side routing
+3. Set correct output directory
 
-### Task 4: Navigation and Index
-- [x] Create comprehensive index.md with table of contents
-- [x] Ensure all lesson links are correct
-- [x] Verify Docusaurus compatibility
+### Step 3: Test Locally
+1. Run `npm run build` to create the build
+2. Run `npm run serve` to test the build locally
+3. Verify routing works correctly for various paths
 
-## Post-Implementation Validation
+### Step 4: Deploy to Vercel
+1. Push changes to repository
+2. Trigger Vercel deployment
+3. Test all routes after deployment
 
-### Constitution Compliance Review
-- [x] All content follows specification-first thinking
-- [x] Simulation-first approach maintained throughout
-- [x] AI collaboration emphasized in all chapters
-- [x] Progressive skill building evident in chapter progression
-- [x] Practical system design focus maintained
+## Success Criteria Verification
 
-### Quality Assurance
-- [x] All 40 lessons completed with consistent structure
-- [x] Docusaurus compatibility verified
-- [x] RAG-friendly modular content structure
-- [x] Beginner-friendly language used throughout
-- [x] Content aligned with target audience needs
+### Measurable Outcomes
+- [ ] 100% of site pages load without 404 errors after deployment to Vercel
+- [ ] Users can refresh any page and it loads correctly (0% failure rate)
+- [ ] Direct URL access to any valid route works properly (0% failure rate)
+- [ ] Deployment process completes successfully on Vercel platform
 
-## Deployment Considerations
+### Quality Measures
+- [ ] All internal links function correctly
+- [ ] Search engine optimization is not negatively impacted
+- [ ] Client-side routing works seamlessly for end users
+- [ ] No broken links or resources after deployment
 
-The textbook content is structured for easy integration into a Docusaurus site:
-- All files use proper Markdown format with YAML frontmatter
-- Hierarchical organization matches Docusaurus requirements
-- File names are URL-friendly
-- Content is modular for easy maintenance and updates
+## Risk Mitigation
+
+### Potential Risks
+1. **Domain Configuration**: Ensure correct domain is used in docusaurus.config.js
+2. **Build Failures**: Verify build process works before deployment
+3. **Routing Conflicts**: Test various route patterns to ensure no conflicts
+
+### Mitigation Strategies
+1. Use environment-specific configurations for different deployment stages
+2. Thoroughly test build process locally before deployment
+3. Test multiple route patterns during development and staging
+
+## Implementation Timeline
+- **Phase 1**: Configuration updates (Day 1)
+- **Phase 2**: Local testing (Day 1)
+- **Phase 3**: Deployment and verification (Day 1)
+
+## Rollback Plan
+If the changes cause issues:
+1. Revert docusaurus.config.js changes
+2. Remove vercel.json file
+3. Redeploy with original configuration

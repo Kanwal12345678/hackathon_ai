@@ -1,76 +1,102 @@
-# Data Model: Physical AI Textbook
+# Data Model: Docusaurus Configuration for Vercel Deployment
 
-## Entity: Textbook
-- **name**: Physical AI — AI-Native Textbook
-- **description**: Comprehensive textbook for beginners-to-intermediate learners on Physical AI
-- **chapters_count**: 8
-- **lessons_per_chapter**: 5
-- **total_lessons**: 40
-- **target_audience**: Beginners-to-intermediate learners
-- **approach**: Simulation-first, specification-driven
-- **language_level**: Beginner-friendly
+## Configuration Files
 
-## Entity: Chapter
-- **id**: String (e.g., "chapter_1", "chapter_2", etc.)
-- **title**: String (chapter title)
-- **description**: String (1-2 line description)
-- **lessons**: Array of Lesson entities
-- **order**: Integer (1-8)
-- **learning_progression**: String (indicates skill building level)
+### docusaurus.config.js
+**Description**: Main configuration file for Docusaurus site
 
-### Chapter Relationships:
-- Contains 5 Lesson entities
-- Belongs to 1 Textbook entity
+**Fields**:
+- title: string - Site title
+- tagline: string - Site tagline
+- url: string - Site URL (deployment domain)
+- baseUrl: string - Base URL for site
+- onBrokenLinks: string - How to handle broken links
+- onBrokenMarkdownLinks: string - How to handle broken markdown links
+- favicon: string - Path to favicon
+- organizationName: string - GitHub organization name
+- projectName: string - GitHub project name
+- trailingSlash: boolean - Whether to add trailing slashes to URLs
+- presets: array - Docusaurus presets configuration
+- themeConfig: object - Theme-specific configuration
 
-## Entity: Lesson
-- **id**: String (e.g., "lesson_1_1", "lesson_2_3", etc.)
-- **title**: String (lesson title)
-- **sidebar_label**: String (shortened title for navigation)
-- **description**: String (2-line summary)
-- **learning_objectives**: Array of strings (3-5 objectives)
-- **overview**: String (intro paragraph)
-- **theory**: String (concept explanation)
-- **hands_on_exercise**: String (step-by-step instructions)
-- **summary**: Array of strings (key takeaways)
-- **references**: Array of strings (optional links/resources)
-- **chapter_id**: String (parent chapter)
-- **order**: Integer (1-5 within chapter)
+**Validation Rules**:
+- url must be a valid URL format
+- baseUrl must start with '/'
+- trailingSlash must be explicitly set to false for Vercel compatibility
+- All required fields must be present for proper site functionality
 
-### Lesson Relationships:
-- Belongs to 1 Chapter entity
-- Contains structured content sections
+### vercel.json
+**Description**: Vercel deployment configuration file
 
-## Entity: ContentSection
-- **type**: String (learning_objectives, overview, theory, hands_on_exercise, summary, references)
-- **content**: String (section content)
-- **lesson_id**: String (parent lesson)
-- **required**: Boolean (whether section is mandatory)
+**Fields**:
+- outputDirectory: string - Directory containing built assets
+- rewrites: array - URL rewrite rules
+- routes: array - Custom routing rules
 
-### ContentSection Relationships:
-- Belongs to 1 Lesson entity
+**Validation Rules**:
+- outputDirectory must match Docusaurus build output directory ('build')
+- rewrites must properly handle client-side routing for SPA
+- routes must not conflict with intended site navigation
 
-## Entity: Navigation
-- **textbook_index**: File path to index.md
-- **chapter_paths**: Array of directory paths
-- **lesson_paths**: Array of file paths
-- **sidebar_structure**: Hierarchical structure for Docusaurus sidebar
-- **url_friendly_names**: Array of URL-compatible names
+## Deployment Assets
 
-### Navigation Relationships:
-- References all Chapter and Lesson entities
+### Build Directory
+**Description**: Contains compiled static assets for deployment
+
+**Fields**:
+- index.html: main entry point
+- static/: directory containing static assets (CSS, JS, images)
+- docs/: directory containing documentation pages
+- blog/: directory containing blog posts
+- assets: various static files
+
+### Build Process
+**Description**: Process that generates deployment assets
+
+**Fields**:
+- source: source code directory
+- output: build output directory
+- command: build command ('npm run build')
+- dependencies: required packages for build
+
+## Environment Configuration
+
+### Environment Variables
+**Description**: Runtime configuration for different deployment environments
+
+**Fields**:
+- NODE_ENV: string - Environment mode (development, production)
+- DEPLOYMENT_ENV: string - Deployment environment identifier
+- VERCEL_URL: string - Vercel deployment URL (runtime)
+
+**State Transitions**:
+- Development → Staging → Production
+- Each environment may have different URL configurations
+
+## Routing Configuration
+
+### Client-Side Routing
+**Description**: How Docusaurus handles navigation without server requests
+
+**Fields**:
+- enabled: boolean - Whether client-side routing is active
+- base_path: string - Base path for all routes
+- fallback: string - Fallback for non-existent routes
+
+### Server-Side Routing (Vercel)
+**Description**: How Vercel handles incoming requests before client-side routing
+
+**Fields**:
+- rewrite_rules: array - Rules for URL rewriting
+- catch_all: boolean - Whether to catch all routes
+- fallback_page: string - Page to serve for all routes (typically index.html)
 
 ## Validation Rules:
-1. Each Chapter must have exactly 5 lessons
-2. Each Lesson must have all required sections (Learning Objectives through References)
-3. All content must use beginner-friendly language
-4. Each Lesson must follow simulation-first approach
-5. Content must align with Physical AI constitution principles
-6. YAML frontmatter must be present in each lesson file
-7. File names must be URL-friendly and follow naming convention
-8. All lessons must include hands-on exercises with AI agent collaboration
-
-## State Transitions:
-- **Draft**: Initial content creation state
-- **Reviewed**: Content reviewed for quality and accuracy
-- **Validated**: Content validated against constitution and requirements
-- **Complete**: Content finalized and ready for deployment
+1. docusaurus.config.js must have proper URL and baseUrl configuration for Vercel
+2. trailingSlash must be set to false for Vercel deployment
+3. vercel.json must include proper rewrite rules for SPA routing
+4. Build output directory must be 'build' for Vercel compatibility
+5. All static assets must be properly referenced in built files
+6. Client-side routing must work after server-side rewrite
+7. Canonical URLs must be correct for SEO
+8. All internal links must work after deployment

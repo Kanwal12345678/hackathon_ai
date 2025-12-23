@@ -1,64 +1,36 @@
-# Research Document: Physical AI Textbook Implementation
+# Research: Docusaurus Configuration for Vercel Deployment
 
-## Decision: Docusaurus File Structure
-**Rationale**: Docusaurus requires specific Markdown format with YAML frontmatter for proper documentation site generation. The structure must include proper navigation and modular content organization.
+## Decision: Docusaurus trailingSlash Configuration
+**Rationale**: Setting trailingSlash to false is required for proper routing on Vercel to prevent 404 errors when accessing routes directly
 **Alternatives considered**:
-- Static HTML generation
-- Sphinx documentation
-- GitBook format
-- Custom documentation system
+- trailingSlash: true - causes routing issues on Vercel
+- trailingSlash: undefined - defaults may not be optimal for Vercel
 
-## Decision: Textbook Organization
-**Rationale**: 8 chapters with 5 lessons each provides comprehensive coverage while maintaining manageable content chunks. This structure supports progressive learning and modular content creation.
+## Decision: Vercel rewrites configuration
+**Rationale**: Vercel requires rewrites to handle client-side routing for SPA frameworks like Docusaurus
 **Alternatives considered**:
-- Single comprehensive document
-- Different chapter/lesson ratios (e.g., 10x4, 6x7)
-- Topic-based rather than skill-progression based
+- Using redirects instead of rewrites - redirects change the URL in the browser
+- Using cleanUrls: true - doesn't solve the core routing issue
 
-## Decision: Content Format and Structure
-**Rationale**: The required structure (Learning Objectives, Overview, Theory, Hands-On/Exercise, Summary, References) ensures comprehensive learning experience while maintaining consistency across all lessons.
+## Decision: Build output directory
+**Rationale**: Docusaurus default build output is 'build' directory which is standard and expected by deployment platforms
 **Alternatives considered**:
-- Different section organization
-- Less structured approach
-- More/less detailed sections
+- Custom output directory - adds unnecessary complexity
 
-## Decision: Simulation-First Approach
-**Rationale**: Simulation-first methodology makes Physical AI education accessible without requiring expensive hardware, while providing safe experimentation environment.
+## Decision: URL configuration for Vercel
+**Rationale**: The URL in docusaurus.config.js should match the actual Vercel deployment domain to ensure proper canonical URLs and SEO
 **Alternatives considered**:
-- Hardware-first approach
-- Theory-only approach
-- Mixed simulation/hardware approach
+- Using placeholder URLs - causes SEO and canonical link issues
+- Using local development URLs in production - creates incorrect canonical links
 
-## Decision: AI Collaboration Emphasis
-**Rationale**: Emphasizing AI as co-creator aligns with Physical AI constitution and reflects modern AI-assisted development practices.
+## Decision: Base URL Configuration
+**Rationale**: The baseUrl should be set to '/' for root domain deployments on Vercel, or to the subdirectory path if deployed in a subdirectory
 **Alternatives considered**:
-- AI as tool-only approach
-- Traditional human-only approach
-- Minimal AI mention
+- Using absolute URLs in baseUrl - creates deployment inflexibility
+- Using relative paths - not supported by Docusaurus
 
-## Decision: Beginner-Friendly Language
-**Rationale**: Clear, simple language ensures accessibility for target audience of beginners-to-intermediate learners.
+## Decision: Client-side routing for Docusaurus
+**Rationale**: Docusaurus uses client-side routing which requires server configuration to handle deep links properly
 **Alternatives considered**:
-- Technical-heavy approach
-- Academic formal language
-- Variable complexity based on lesson
-
-## Technology Research: Docusaurus Requirements
-- YAML frontmatter with title, sidebar_label, and description
-- Markdown format compatibility
-- File naming conventions for proper navigation
-- Directory structure for category organization
-
-## Best Practices: Educational Content Creation
-- Progressive complexity building
-- Hands-on exercises for engagement
-- Clear learning objectives
-- Summaries for reinforcement
-- Modular content for reusability
-
-## Best Practices: RAG-Friendly Content Structure
-- Self-contained modules
-- Consistent formatting
-- Clear section separation
-- Standardized metadata
-- Semantic content organization
+- Server-side rendering - requires different hosting approach
+- Static generation with individual HTML files for each route - not how Docusaurus works
