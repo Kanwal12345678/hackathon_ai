@@ -9,7 +9,7 @@
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, #4c1d95 0%, #db2777 100%); /* Dark purple to pink gradient */
-  margin-bottom: 4rem;
+  margin-bottom: 0;
   border-radius: 0 0 var(--ifm-global-radius) var(--ifm-global-radius);
   box-shadow: var(--ifm-global-shadow);
   position: relative;

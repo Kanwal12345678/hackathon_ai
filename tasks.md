@@ -1,138 +1,171 @@
-# Tasks: Fix Docusaurus 404 Error on Vercel Deployment
+# Tasks: Textbook Chapters Section
 
 ## Feature Overview
 
-**Feature Name:** Fix Docusaurus 404 Error on Vercel Deployment
-**Feature ID:** 1-docusaurus-vercel
-**Created:** 2025-12-23
+**Feature Name:** Textbook Chapters Section
+**Feature ID:** 2-textbook-chapters
+**Created:** 2025-12-24
 **Status:** Task Generation Complete
 
 ## Implementation Strategy
 
-This implementation will follow a specification-first approach to resolve the 404 NOT_FOUND error that occurs when deploying a Docusaurus site to Vercel. The issue prevents users from accessing pages other than the homepage when refreshing or directly navigating to routes. The solution involves configuring docusaurus.config.js properly for Vercel deployment and creating vercel.json with appropriate rewrite rules for client-side routing.
+This implementation will follow a component-first approach to create the Textbook Chapters section with responsive design, glassmorphism effects, and proper styling. The solution involves creating a React component with CSS modules for the textbook chapters display with 8 chapter cards.
 
-**MVP Scope**: Initial implementation will focus on configuring the docusaurus.config.js and creating the vercel.json file to handle routing properly.
+**MVP Scope**: Initial implementation will focus on creating the TextbookChapters component with proper styling, responsive grid layout, and the 8 required chapter cards.
 
 ## Phase 1: Setup
 
 ### Goal
-Initialize the project with necessary configuration files and verify current setup.
+Initialize the project with necessary directory structure and verify current setup.
 
-- [X] T001 Create backup of current docusaurus.config.js file in docusaurus-physical-ai/docusaurus.config.js.backup
-- [X] T002 Verify current Docusaurus build process works with `npm run build` in docusaurus-physical-ai/
-- [X] T003 Identify current Vercel deployment URL or set up placeholder for docusaurus.config.js
+- [X] T001 Create src/components/TextbookChapters directory in docusaurus-physical-ai/
+- [X] T002 Verify current Docusaurus development server works with `npm start` in docusaurus-physical-ai/
 
 ## Phase 2: Foundational Configuration
 
 ### Goal
-Prepare the foundational configuration changes that will be needed across all user stories.
+Prepare the foundational component structure that will be needed across all user stories.
 
-- [X] T004 [P] Update docusaurus.config.js with correct URL for Vercel deployment in docusaurus-physical-ai/docusaurus.config.js
-- [X] T005 [P] Set trailingSlash to false in docusaurus.config.js to ensure proper routing on Vercel in docusaurus-physical-ai/docusaurus.config.js
-- [X] T006 [P] Verify baseUrl is set to '/' in docusaurus.config.js for root domain deployment in docusaurus-physical-ai/docusaurus.config.js
+- [X] T003 [P] Create TextbookChapters.jsx component file in docusaurus-physical-ai/src/components/TextbookChapters/
+- [X] T004 [P] Create TextbookChapters.module.css stylesheet in docusaurus-physical-ai/src/components/TextbookChapters/
+- [X] T005 [P] Create README.md documentation in docusaurus-physical-ai/src/components/TextbookChapters/
 
-## Phase 3: [US1] Docusaurus Configuration Update
+## Phase 3: [US1] Main Heading and Sub-heading Implementation
 
 ### Goal
-Update the docusaurus.config.js file to be properly configured for Vercel deployment with correct URL handling.
+Create the main heading with gradient text effect and sub-heading with muted color styling.
 
 ### Independent Test Criteria
-- Build completes successfully after configuration changes
-- Configuration values match Vercel deployment requirements
+- Main heading displays "Textbook Chapters" with pink-purple gradient and glow effect
+- Sub-heading displays "8 comprehensive modules covering Physical AI & AI Native" with muted color
+- Elements are centered at the top of the section
 
 ### Tasks
-- [X] T007 [US1] Verify organizationName and projectName are correctly set in docusaurus.config.js in docusaurus-physical-ai/docusaurus.config.js
-- [X] T008 [US1] Ensure onBrokenLinks and onBrokenMarkdownLinks are set to appropriate values in docusaurus.config.js in docusaurus-physical-ai/docusaurus.config.js
-- [X] T009 [US1] Test build process with new configuration using `npm run build` in docusaurus-physical-ai/
+- [X] T006 [US1] Implement main heading with gradient text styling in TextbookChapters.jsx
+- [X] T007 [US1] Implement sub-heading with muted color styling in TextbookChapters.jsx
+- [X] T008 [US1] Apply centered alignment to heading elements in TextbookChapters.jsx
+- [X] T009 [US1] Add gradient styling to heading in TextbookChapters.module.css
+- [X] T010 [US1] Test heading display with gradient effect in development server
 
-## Phase 4: [US2] Vercel Configuration Creation
+## Phase 4: [US2] Responsive Grid Layout Implementation
 
 ### Goal
-Create vercel.json file with proper rewrite rules to handle client-side routing for Docusaurus.
+Create a responsive grid layout that displays 8 chapter cards with proper breakpoints.
 
 ### Independent Test Criteria
-- vercel.json file exists with correct configuration
-- Rewrite rules properly redirect all routes to index.html
-- Output directory is set to 'build'
+- Grid displays exactly 8 chapter cards
+- Layout is responsive (1 column on mobile, 2 on tablet, 4 on desktop)
+- Cards maintain consistent spacing
+- Layout adapts smoothly to different screen sizes
 
 ### Tasks
-- [X] T010 [US2] Create vercel.json file in project root directory at docusaurus-physical-ai/vercel.json
-- [X] T011 [US2] Configure outputDirectory to 'build' in vercel.json in docusaurus-physical-ai/vercel.json
-- [X] T012 [US2] Add rewrite rules to handle client-side routing in vercel.json in docusaurus-physical-ai/vercel.json
-- [X] T013 [US2] Validate vercel.json structure and syntax in docusaurus-physical-ai/vercel.json
+- [X] T011 [US2] Create responsive grid container in TextbookChapters.jsx
+- [X] T012 [US2] Implement CSS grid styling with breakpoints in TextbookChapters.module.css
+- [X] T013 [US2] Test responsive behavior on different screen sizes in development server
+- [X] T014 [US2] Verify consistent spacing between cards in TextbookChapters.module.css
 
-## Phase 5: [US3] Build Process Verification
+## Phase 5: [US3] Chapter Card Design Implementation
 
 ### Goal
-Ensure the build process outputs to the correct directory and all assets are properly generated.
+Implement the glassmorphism design for each chapter card with rounded corners and hover effects.
 
 ### Independent Test Criteria
-- Build process completes without errors
-- Output directory contains all necessary assets
-- Build directory structure is correct for Vercel deployment
+- Each card has dark glassmorphism style appearance
+- Cards have rounded corners
+- Cards have subtle gradient border effect
+- Cards have soft glow effect on hover
+- Cards have clean modern look overall
 
 ### Tasks
-- [X] T014 [US3] Execute build process with `npm run build` in docusaurus-physical-ai/
-- [X] T015 [US3] Verify build directory contains index.html file in docusaurus-physical-ai/build/
-- [X] T016 [US3] Check that static assets are properly generated in docusaurus-physical-ai/build/
-- [X] T017 [US3] Verify docs and blog pages are properly built in docusaurus-physical-ai/build/
+- [X] T015 [US3] Create chapter card structure in TextbookChapters.jsx
+- [X] T016 [US3] Implement glassmorphism styling in TextbookChapters.module.css
+- [X] T017 [US3] Add rounded corners to card styling in TextbookChapters.module.css
+- [X] T018 [US3] Implement hover effects with gradient borders in TextbookChapters.module.css
+- [X] T019 [US3] Test hover animations and visual effects in development server
 
-## Phase 6: [US4] Local Testing and Validation
+## Phase 6: [US4] Chapter Card Content Implementation
 
 ### Goal
-Test the configuration locally to ensure routing works correctly before deployment.
+Add the required content elements to each chapter card: icon, title, description, and button.
 
 ### Independent Test Criteria
-- Local server serves all routes correctly
-- Page refresh works on all routes
-- Direct URL access works for all pages
+- Each card displays a small icon at the top (emoji)
+- Each card shows chapter title in bold text
+- Each card includes short description (2-3 lines maximum)
+- Each card has "Read Chapter →" button at the bottom
 
 ### Tasks
-- [X] T018 [US4] Serve built site locally using `npx serve build` in docusaurus-physical-ai/
-- [X] T019 [US4] Test homepage access at root URL in local server
-- [X] T020 [US4] Test direct access to documentation pages (e.g., /docs/intro) in local server
-- [X] T021 [US4] Test page refresh functionality on various routes in local server
-- [X] T022 [US4] Test internal navigation links in local server
+- [X] T020 [US4] Add emoji icons to chapter cards in TextbookChapters.jsx
+- [X] T021 [US4] Implement bold chapter titles in TextbookChapters.jsx
+- [X] T022 [US4] Add chapter descriptions to cards in TextbookChapters.jsx
+- [X] T023 [US4] Create "Read Chapter →" buttons in TextbookChapters.jsx
+- [X] T024 [US4] Style icon, title, description, and button elements in TextbookChapters.module.css
 
-## Phase 7: [US5] Deployment and Final Verification
+## Phase 7: [US5] Chapter Content Accuracy Implementation
 
 ### Goal
-Deploy to Vercel and verify all functionality works in production environment.
+Ensure the chapter cards display the exact chapter names as specified.
 
 ### Independent Test Criteria
-- Site deploys successfully to Vercel
-- All pages load without 404 errors
-- Direct URL access and refresh work for all routes
+- Chapter 1 displays as "Introduction to Physical AI"
+- Chapter 2 displays as "Specification-Driven Design"
+- Chapter 3 displays as "Simulation Environments"
+- Chapter 4 displays as "AI Agent Collaboration"
+- Chapter 5 displays as "Basic Movement and Control"
+- Chapter 6 displays as "Sensor Integration and Perception"
+- Chapter 7 displays as "Advanced Physical AI Systems"
+- Chapter 8 displays as "Deployment and Real-World Applications"
 
 ### Tasks
-- [X] T023 [US5] Commit configuration changes to repository with appropriate commit message
-- [X] T024 [US5] Push changes to repository to trigger Vercel deployment
-- [X] T025 [US5] Verify homepage loads correctly on deployed site
-- [X] T026 [US5] Test direct URL access to various pages on deployed site
-- [X] T027 [US5] Test page refresh functionality on deployed site
-- [X] T028 [US5] Verify all internal links work correctly on deployed site
+- [X] T025 [US5] Add Chapter 1 content with "Introduction to Physical AI" in TextbookChapters.jsx
+- [X] T026 [US5] Add Chapter 2 content with "Specification-Driven Design" in TextbookChapters.jsx
+- [X] T027 [US5] Add Chapter 3 content with "Simulation Environments" in TextbookChapters.jsx
+- [X] T028 [US5] Add Chapter 4 content with "AI Agent Collaboration" in TextbookChapters.jsx
+- [X] T029 [US5] Add Chapter 5 content with "Basic Movement and Control" in TextbookChapters.jsx
+- [X] T030 [US5] Add Chapter 6 content with "Sensor Integration and Perception" in TextbookChapters.jsx
+- [X] T031 [US5] Add Chapter 7 content with "Advanced Physical AI Systems" in TextbookChapters.jsx
+- [X] T032 [US5] Add Chapter 8 content with "Deployment and Real-World Applications" in TextbookChapters.jsx
+- [X] T033 [US5] Verify all chapter titles match specification exactly in development server
 
-## Phase 8: Polish & Cross-Cutting Concerns
+## Phase 8: [US6] Integration and Page Implementation
 
 ### Goal
-Final verification and documentation of the solution.
+Integrate the TextbookChapters component into the Docusaurus page structure.
+
+### Independent Test Criteria
+- TextbookChapters component is properly imported and used in the textbook chapters page
+- Component displays correctly within the Docusaurus layout
+- Navigation and routing work properly
 
 ### Tasks
-- [X] T029 Update deployment documentation to reflect new configuration in docusaurus-physical-ai/DEPLOYMENT_README.md
-- [X] T030 Test SEO elements (canonical URLs, meta tags) are correctly configured in built site
-- [X] T031 Verify performance is not negatively impacted by routing configuration in built site
-- [X] T032 Document rollback procedure in case of issues in docusaurus-physical-ai/DEPLOYMENT_README.md
-- [X] T033 Run final end-to-end test of all functionality on deployed site
+- [X] T034 [US6] Import TextbookChapters component in the textbook chapters page
+- [X] T035 [US6] Add TextbookChapters component to the textbook chapters page layout
+- [X] T036 [US6] Test component integration in development server
+- [X] T037 [US6] Verify proper routing and navigation in development server
+
+## Phase 9: Polish & Cross-Cutting Concerns
+
+### Goal
+Final verification and optimization of the component.
+
+### Tasks
+- [X] T038 Update component README.md with usage instructions in docusaurus-physical-ai/src/components/TextbookChapters/README.md
+- [X] T039 Optimize CSS for performance in TextbookChapters.module.css
+- [X] T040 Test accessibility standards in development server
+- [X] T041 Verify browser compatibility in different browsers
+- [X] T042 Run final end-to-end test of all functionality in development server
+- [X] T043 Update documentation to reflect new component in docusaurus-physical-ai/docs/
 
 ## Dependencies
 
-- US1 (Docusaurus Configuration Update) must be completed before US3 (Build Process Verification)
-- US2 (Vercel Configuration Creation) should be completed before US5 (Deployment and Final Verification)
-- US3 (Build Process Verification) must be completed before US4 (Local Testing and Validation)
-- US4 (Local Testing and Validation) must pass before US5 (Deployment and Final Verification)
+- US3 (Chapter Card Design Implementation) must be completed before US4 (Chapter Card Content Implementation)
+- US1 (Main Heading and Sub-heading Implementation) can run in parallel with US2 (Responsive Grid Layout Implementation)
+- US5 (Chapter Content Accuracy Implementation) depends on US4 (Chapter Card Content Implementation)
+- US6 (Integration and Page Implementation) must be completed after all other user stories
 
 ## Parallel Execution Examples
 
-- T004, T005, T006 can run in parallel as they all modify different aspects of docusaurus.config.js
-- T010, T011, T012 can run in parallel as they all work on creating vercel.json
-- T018, T019, T020, T021, T022 can run in parallel as they are all testing different aspects of the local server
+- T003, T004, T005 can run in parallel as they create different files in the same directory
+- T006, T007, T008 can run in parallel as they work on different elements in TextbookChapters.jsx
+- T025, T026, T027, T028, T029, T030, T031, T032 can run in parallel as they add different chapter contents
+- T038, T039, T040, T041, T042 can run in parallel as they are all optimization tasks

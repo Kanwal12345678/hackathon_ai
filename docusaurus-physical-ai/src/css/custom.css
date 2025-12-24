@@ -189,6 +189,164 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -6px rgba(0, 0, 0, 0.05);
 }
 
+/* Doc page styling to match Textbook Chapters */
+.docPage {
+  background: linear-gradient(135deg, #0a0a23 0%, #1a1a3e 50%, #2d1b69 100%) !important;
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.docPageContainer {
+  max-width: 1400px !important;
+  padding: 0 1.5rem !important;
+}
+
+.docItemWrapper {
+  max-width: 100% !important;
+}
+
+/* Style for main headings in docs */
+.docMainContainer h1,
+.docMainContainer h2,
+.docMainContainer h3,
+.docMainContainer h4,
+.docMainContainer h5,
+.docMainContainer h6 {
+  background: linear-gradient(to right, #ec4899, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.docMainContainer h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.docMainContainer h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.docMainContainer h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Add subtle glow effect to headings */
+.docMainContainer h1::after,
+.docMainContainer h2::after,
+.docMainContainer h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(to right, #ec4899, #a855f7);
+  border-radius: 1px;
+}
+
+/* Content styling */
+.docMainContainer :global(.markdown) {
+  color: #e2e8f0 !important;
+}
+
+.docMainContainer :global(.markdown) p,
+.docMainContainer :global(.markdown) li {
+  color: #cbd5e1 !important;
+  line-height: 1.7;
+}
+
+/* Links styling */
+.docMainContainer :global(.markdown) a {
+  color: #f472b6 !important;
+  text-decoration: none;
+  position: relative;
+}
+
+.docMainContainer :global(.markdown) a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #f472b6;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.docMainContainer :global(.markdown) a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Code blocks styling */
+.docMainContainer :global(.markdown) :global(.theme-code-block),
+.docMainContainer :global(.markdown) code,
+.docMainContainer :global(.markdown) :global(.prism-code) {
+  background: rgba(30, 41, 59, 0.8) !important;
+  border: 1px solid rgba(236, 72, 153, 0.2) !important;
+  border-radius: 8px !important;
+  color: #f8fafc !important;
+}
+
+/* Table of Contents styling */
+:global(.table-of-contents) {
+  background: rgba(30, 41, 59, 0.5) !important;
+  border: 1px solid rgba(236, 72, 153, 0.2) !important;
+  border-radius: 8px !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+:global(.table-of-contents) li {
+  margin: 0.5rem 0 !important;
+}
+
+:global(.table-of-contents) a {
+  color: #cbd5e1 !important;
+  transition: color 0.2s ease !important;
+}
+
+:global(.table-of-contents) a:hover {
+  color: #f472b6 !important;
+}
+
+/* Sidebar styling */
+:global(.menu) {
+  background: rgba(15, 23, 42, 0.9) !important;
+  backdrop-filter: blur(10px) !important;
+  border-right: 1px solid rgba(236, 72, 153, 0.2) !important;
+}
+
+:global(.menu__list-item) {
+  margin: 0.25rem 0 !important;
+}
+
+:global(.menu__link) {
+  color: #cbd5e1 !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+:global(.menu__link--active) {
+  background: rgba(236, 72, 153, 0.15) !important;
+  color: #f472b6 !important;
+  border-left: 3px solid #ec4899 !important;
+}
+
+:global(.menu__link):hover {
+  background: rgba(236, 72, 153, 0.1) !important;
+  color: #f472b6 !important;
+}
+
 /* Improved typography */
 .hero__title {
   font-size: 3.5rem;

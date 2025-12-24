@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import TextbookChapters from '@site/src/components/TextbookChapters/TextbookChapters';
 
 import styles from './index.module.css';
 
@@ -35,7 +35,7 @@ export default function Home() {
       description="Teaching Physical AI with AI agents, simulation-first approach">
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
+        <TextbookChapters />
       </main>
     </Layout>
   );

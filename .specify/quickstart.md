@@ -1,7 +1,7 @@
-# Quickstart Guide: Docusaurus Vercel Deployment Fix
+# Quickstart Guide: Docusaurus Vercel Deployment Fix & Textbook Chapters Feature
 
 ## Overview
-This guide provides step-by-step instructions to fix the 404 error when deploying a Docusaurus site to Vercel. The issue occurs because Docusaurus uses client-side routing, which requires special server configuration to handle direct URL access.
+This guide provides step-by-step instructions to fix the 404 error when deploying a Docusaurus site to Vercel. The issue occurs because Docusaurus uses client-side routing, which requires special server configuration to handle direct URL access. Additionally, this guide covers the setup for the Textbook Chapters section with responsive design and glassmorphism effects.
 
 ## Prerequisites
 - Node.js installed on your system
@@ -41,7 +41,20 @@ This guide provides step-by-step instructions to fix the 404 error when deployin
    }
    ```
 
-## Step 3: Test Locally
+## Step 3: Implement Textbook Chapters Component
+
+1. Create component directory: `src/components/TextbookChapters/`
+2. Create `TextbookChapters.jsx` with:
+   - Main heading with gradient text effect
+   - Sub-heading with muted color styling
+   - Responsive grid of 8 chapter cards
+   - Each card with icon, title, description, and "Read Chapter →" button
+3. Create `TextbookChapters.module.css` with:
+   - Glassmorphism effects using backdrop-filter
+   - Hover animations and gradient borders
+   - Responsive design for different screen sizes
+
+## Step 4: Test Locally
 
 1. Build your Docusaurus site:
    ```bash
@@ -52,13 +65,18 @@ This guide provides step-by-step instructions to fix the 404 error when deployin
    npx serve build
    ```
 3. Test various routes by navigating directly to different pages (e.g., /docs/intro, /docs/chapter1/lesson1)
+4. Verify the Textbook Chapters section displays correctly:
+   - Check main heading with gradient effect
+   - Verify 8 chapter cards in responsive grid
+   - Test hover effects on chapter cards
+   - Confirm all 8 chapter titles match specification
 
-## Step 4: Deploy to Vercel
+## Step 5: Deploy to Vercel
 
 1. Commit your changes:
    ```bash
    git add .
-   git commit -m "Fix: Configure Docusaurus for Vercel deployment"
+   git commit -m "Fix: Configure Docusaurus for Vercel deployment and add Textbook Chapters section"
    git push
    ```
 2. If not already connected, link your project to Vercel:
@@ -76,6 +94,10 @@ After deployment, verify that:
 - All documentation pages load without 404 errors
 - Direct URL access to any route works
 - Page refresh works on all routes
+- Textbook Chapters section displays properly with all 8 cards
+- Responsive design works across different screen sizes
+- Hover effects function correctly
+- All chapter titles match the specification exactly
 
 ## Troubleshooting
 
@@ -89,6 +111,11 @@ After deployment, verify that:
 - Check that build command is correctly set in Vercel project settings
 - Ensure Node.js version is compatible with your dependencies
 
+### Textbook Chapters component not displaying?
+- Check that the component files are in the correct directory
+- Verify CSS module imports are properly configured
+- Ensure the component is properly integrated into the Docusaurus page
+
 ## Next Steps
 
 Once the deployment is working correctly:
@@ -96,3 +123,4 @@ Once the deployment is working correctly:
 - Configure SSL certificate
 - Set up continuous deployment from your Git repository
 - Add environment variables if needed for different deployment stages
+- Enhance the Textbook Chapters section with additional features as needed

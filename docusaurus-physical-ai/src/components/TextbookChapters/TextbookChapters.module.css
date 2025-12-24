@@ -1,58 +1,192 @@
 /* Textbook Chapters Component Styles */
-/* These styles are designed to work with Tailwind CSS and Docusaurus */
 
-.textbook-chapters-section {
-  @apply py-16 px-4 sm:px-6 lg:px-8;
+.textbookChapters {
+  padding: 4rem 0;
+  width: 100%;
+  background: linear-gradient(135deg, #0a0a23 0%, #1a1a3e 50%, #2d1b69 100%);
 }
 
-.textbook-chapters-container {
-  @apply max-w-7xl mx-auto;
+.mainHeading {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #ec4899, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+  position: relative;
 }
 
-.textbook-chapters-heading {
-  @apply text-center mb-8;
+.mainHeading::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, #ec4899, #a855f7);
+  border-radius: 2px;
 }
 
-.textbook-chapters-title {
-  @apply text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-pink-400 via-purple-500 to-blue-500 bg-clip-text text-transparent drop-shadow-lg;
+.subHeading {
+  font-size: 1.2rem;
+  color: #9ca3af;
+  opacity: 0.8;
+  margin-bottom: 3rem;
 }
 
-.textbook-chapters-subtitle {
-  @apply text-gray-400 text-lg md:text-xl max-w-2xl mx-auto;
+.chapterCard {
+  padding: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-.chapters-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6;
+.cardContent {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  height: 100%;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.chapter-card {
-  @apply group relative bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1;
+.cardContent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(45deg, #ec4899, #a855f7, #3b82f6, #ec4899);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.chapter-card:hover {
-  @apply border-pink-500/50 shadow-2xl shadow-pink-500/20;
+.cardContent:hover::before {
+  opacity: 1;
 }
 
-.chapter-card-gradient {
-  @apply absolute inset-0 rounded-2xl bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10;
+.cardContent:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(236, 72, 153, 0.1), 0 10px 10px -6px rgba(139, 92, 246, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(236, 72, 153, 0.3);
 }
 
-.chapter-icon {
-  @apply text-3xl mb-4 text-center;
+.icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: block;
 }
 
-.chapter-title {
-  @apply text-xl font-bold text-white mb-3 text-center transition-colors duration-300;
+.chapterTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f9fafb;
+  margin-bottom: 1rem;
+  line-height: 1.4;
 }
 
-.chapter-title:hover {
-  @apply text-pink-400;
+.chapterDescription {
+  font-size: 0.9rem;
+  color: #d1d5db;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  flex-grow: 1;
 }
 
-.chapter-description {
-  @apply text-gray-300 text-sm leading-relaxed mb-4;
+
+/* Animation for cards */
+.chapterCard {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
 }
 
-.chapter-button {
-  @apply w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-pink-500/25;
+.chapterCard:nth-child(1) { animation-delay: 0.1s; }
+.chapterCard:nth-child(2) { animation-delay: 0.2s; }
+.chapterCard:nth-child(3) { animation-delay: 0.3s; }
+.chapterCard:nth-child(4) { animation-delay: 0.4s; }
+.chapterCard:nth-child(5) { animation-delay: 0.5s; }
+.chapterCard:nth-child(6) { animation-delay: 0.6s; }
+.chapterCard:nth-child(7) { animation-delay: 0.7s; }
+.chapterCard:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 996px) {
+  .textbookChapters {
+    padding: 3rem 0;
+  }
+
+  .mainHeading {
+    font-size: 2.5rem;
+  }
+
+  .chapterCard {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainHeading {
+    font-size: 2rem;
+  }
+
+  .chapterCard {
+    padding: 1rem;
+  }
+
+  .cardContent {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .chapterCard {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0.5rem;
+  }
+
+  .mainHeading {
+    font-size: 1.8rem;
+  }
+
+  .subHeading {
+    font-size: 1rem;
+  }
+
+  .icon {
+    font-size: 2.5rem;
+  }
+
+  .chapterTitle {
+    font-size: 1.1rem;
+  }
+
+  .chapterDescription {
+    font-size: 0.85rem;
+  }
 }

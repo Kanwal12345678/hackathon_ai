@@ -1,0 +1,28 @@
+/**
+ * Custom styles for DocItem to match Textbook Chapters design
+ */
+
+.docContent {
+  background: rgba(15, 23, 42, 0.7) !important;
+  border-radius: 12px !important;
+  padding: 2rem !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(236, 72, 153, 0.2) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  margin-bottom: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 996px) {
+  .docContent {
+    padding: 1.5rem !important;
+    margin: 1rem 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .docContent {
+    padding: 1rem !important;
+    margin: 0.5rem 0 !important;
+  }
+}

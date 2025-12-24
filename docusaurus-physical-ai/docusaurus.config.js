@@ -25,12 +25,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           // Please change this to your repo.
           editUrl: 'https://github.com/your-github-username/docusaurus-physical-ai/edit/main/',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/your-github-username/docusaurus-physical-ai/edit/main/',
-        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -54,7 +48,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             position: 'left',
             label: 'Textbook',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/your-github-username/docusaurus-physical-ai',
             label: 'GitHub',
@@ -88,20 +81,20 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             ],
           },
           {
-            title: 'More',
+            title: 'Connect',
             items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
               {
                 label: 'GitHub',
                 href: 'https://github.com/your-github-username/docusaurus-physical-ai',
               },
+              {
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/in/kanwal-shahzadi',
+              },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Physical AI Textbook. Built with Docusaurus.`,
+        copyright: `© 2025 Physical AI Textbook — Kanwal Shahzadi`,
       },
       prism: {
         theme: lightCodeTheme,
