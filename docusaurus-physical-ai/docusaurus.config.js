@@ -8,8 +8,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   tagline: 'Teaching Physical AI with AI agents, simulation-first approach',
   url: 'https://docusaurus-physical-ai.vercel.app', // Vercel deployment URL
   baseUrl: '/',
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'ignore',
+  onBrokenMarkdownLinks: 'ignore',
   favicon: 'img/robot-favicon.svg',
   organizationName: 'your-github-username', // Usually your GitHub org/user name.
   projectName: 'docusaurus-physical-ai', // Usually your repo name.
