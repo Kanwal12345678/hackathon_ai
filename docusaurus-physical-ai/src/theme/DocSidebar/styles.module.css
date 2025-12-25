@@ -1,0 +1,231 @@
+/**
+ * Custom styles for mobile-friendly DocSidebar
+ */
+
+/* Mobile sidebar container */
+.sidebarContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  padding: 1rem;
+}
+
+.sidebarContainer.open {
+  transform: translateX(0);
+}
+
+/* Mobile sidebar header */
+.sidebarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(236, 72, 153, 0.3);
+  margin-bottom: 1rem;
+}
+
+.sidebarTitle {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.closeButton:hover {
+  background-color: rgba(236, 72, 153, 0.2);
+}
+
+/* Accordion styles for chapters */
+.accordionItem {
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.accordionHeader {
+  background: rgba(30, 41, 59, 0.7);
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #cbd5e1;
+  transition: background-color 0.2s ease;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.accordionHeader:hover {
+  background: rgba(236, 72, 153, 0.2);
+}
+
+.accordionHeader.active {
+  background: rgba(236, 72, 153, 0.3);
+  color: #f472b6;
+}
+
+.accordionIcon {
+  transition: transform 0.2s ease;
+}
+
+.accordionIcon.open {
+  transform: rotate(180deg);
+}
+
+.accordionContent {
+  background: rgba(15, 23, 42, 0.9);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordionContent.open {
+  max-height: 500px; /* Adjust as needed */
+}
+
+.accordionContentInner {
+  padding: 1rem;
+}
+
+.accordionContent ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.accordionContent li {
+  margin: 0.5rem 0;
+}
+
+.accordionContent a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #cbd5e1;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.accordionContent a:hover {
+  background: rgba(236, 72, 153, 0.15);
+  color: #f472b6;
+}
+
+.accordionContent a.active {
+  background: rgba(236, 72, 153, 0.25);
+  color: #f472b6;
+  border-left: 3px solid #ec4899;
+}
+
+/* Desktop sidebar remains unchanged */
+@media (min-width: 997px) {
+  .sidebarContainer {
+    position: static;
+    transform: none;
+    width: auto;
+    height: auto;
+    background: transparent;
+    backdrop-filter: none;
+    z-index: auto;
+    overflow-y: auto;
+    padding: 0;
+  }
+
+  .sidebarContainer.open {
+    transform: none;
+  }
+
+  .sidebarHeader,
+  .closeButton {
+    display: none;
+  }
+
+  .accordionItem {
+    margin-bottom: 0;
+  }
+
+  .accordionHeader {
+    display: none;
+  }
+
+  .accordionContent {
+    max-height: none !important;
+    overflow: visible;
+  }
+
+  .accordionContentInner {
+    padding: 0;
+  }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  .sidebarContainer {
+    padding: 0.5rem;
+  }
+
+  .sidebarHeader {
+    padding: 0.75rem 0;
+  }
+
+  .sidebarTitle {
+    font-size: 1.25rem;
+  }
+
+  .accordionHeader {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .accordionContent a {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Ensure proper spacing and readability */
+.lessonLink {
+  display: block;
+  padding: 0.75rem 1rem !important;
+  margin: 0.25rem 0;
+  border-radius: 6px;
+  color: #cbd5e1 !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  font-size: 0.9rem !important;
+  line-height: 1.4 !important;
+}
+
+.lessonLink:hover {
+  background: rgba(236, 72, 153, 0.15) !important;
+  color: #f472b6 !important;
+}
+
+.lessonLink.active {
+  background: rgba(236, 72, 153, 0.25) !important;
+  color: #f472b6 !important;
+  border-left: 3px solid #ec4899 !important;
+}
