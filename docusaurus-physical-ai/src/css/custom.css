@@ -315,6 +315,77 @@ html[data-theme='dark'] .docMainContainer :global(.markdown) li {
   text-shadow: none !important; /* Remove any text shadow effects */
 }
 
+/* Make sure Textbook Chapters component text is white in both modes */
+html[data-theme] .textbook-chapters-section h2,
+html[data-theme] .textbook-chapters-section h3,
+html[data-theme] .textbook-chapters-section p {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  text-shadow: none !important;
+}
+
+/* Specific overrides for TextbookChapters component CSS modules */
+html[data-theme] .chapter-title,
+html[data-theme] .chapter-description,
+html[data-theme] .textbook-chapters-title,
+html[data-theme] .textbook-chapters-subtitle {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  text-shadow: none !important;
+}
+
+/* Override gradient text effects that may not be visible in light mode */
+html[data-theme] .chapter-title,
+html[data-theme] .textbook-chapters-title .gradient-text {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  background-clip: initial !important;
+  color: #FFFFFF !important;
+}
+
+/* Additional selectors for maximum compatibility */
+/* Main docs content */
+html[data-theme='light'] .theme-doc-markdown,
+html[data-theme='light'] .theme-doc-markdown * {
+  color: #ffffff !important;
+}
+
+/* Headings (chapters + lessons) */
+html[data-theme='light'] .theme-doc-markdown h1,
+html[data-theme='light'] .theme-doc-markdown h2,
+html[data-theme='light'] .theme-doc-markdown h3,
+html[data-theme='light'] .theme-doc-markdown h4,
+html[data-theme='light'] .theme-doc-markdown h5,
+html[data-theme='light'] .theme-doc-markdown h6 {
+  color: #ffffff !important;
+  font-weight: 800;
+}
+
+/* Lists, paragraphs, links */
+html[data-theme='light'] .theme-doc-markdown p,
+html[data-theme='light'] .theme-doc-markdown li,
+html[data-theme='light'] .theme-doc-markdown a {
+  color: #ffffff !important;
+}
+
+/* Lesson index / chapter listing pages */
+html[data-theme='light'] .docItemContainer,
+html[data-theme='light'] .docItemContainer * {
+  color: #ffffff !important;
+}
+
+/* Remove light background that causes blending */
+html[data-theme='light'] .main-wrapper {
+  background: #0b1020 !important; /* dark blue / purple */
+}
+
+/* Sidebar consistency */
+html[data-theme='light'] .menu__link,
+html[data-theme='light'] .menu__link--active {
+  color: #ffffff !important;
+}
+
 /* Code blocks styling */
 .docMainContainer :global(.markdown) :global(.theme-code-block),
 .docMainContainer :global(.markdown) code,
