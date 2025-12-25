@@ -1,33 +1,53 @@
-# Website
+# Physical AI Textbook
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This is a Docusaurus-based textbook on Physical AI, designed to teach beginners-to-intermediate learners how to design, simulate, and deploy Physical AI systems using AI agents, with a hands-on, simulation-first, specification-driven approach.
 
-### Installation
+## About
 
+Welcome to the comprehensive textbook on Physical AI. This textbook follows core principles of Physical AI education:
+- Specification-First Thinking
+- Hands-On, Simulation-First Learning
+- AI as a Co-Creator
+- Progressive Skill Building
+- Practical System Design
+
+## Features
+
+- 8 comprehensive chapters with 5 lessons each (40 total lessons)
+- Covers topics from Introduction to Physical AI to Deployment and Real-World Applications
+- Modern UI with professional pink, purple, black and white color scheme
+- Responsive design with dark/light mode support
+- Custom components for textbook content display
+
+## Chapters
+
+1. Introduction to Physical AI
+2. Specification-Driven Design
+3. Simulation Environments
+4. AI Agent Collaboration
+5. Basic Movement and Control
+6. Sensor Integration and Perception
+7. Advanced Physical AI Systems
+8. Deployment and Real-World Applications
+
+## Installation
+
+```bash
+npm install
 ```
-$ yarn
+
+## Local Development
+
+```bash
+npm start
 ```
 
-### Local Development
+## Build
 
-```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
+```bash
+npm run build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+## Deployment
 
-### Deployment
-
-```
-$ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+This project is configured for deployment to Vercel.
