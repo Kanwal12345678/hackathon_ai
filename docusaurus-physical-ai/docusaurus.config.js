@@ -25,6 +25,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           // Please change this to your repo.
           editUrl: 'https://github.com/your-github-username/docusaurus-physical-ai/edit/main/',
         },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -64,19 +65,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
               {
                 label: 'Physical AI Textbook',
                 to: '/docs/index',
-              },
-            ],
-          },
-          {
-            title: 'Resources',
-            items: [
-              {
-                label: 'Docusaurus',
-                href: 'https://docusaurus.io',
-              },
-              {
-                label: 'Physical AI',
-                href: 'https://physical-ai.org',
               },
             ],
           },
