@@ -10,7 +10,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/robot-favicon.svg',
   organizationName: 'your-github-username', // Usually your GitHub org/user name.
   projectName: 'docusaurus-physical-ai', // Usually your repo name.
   trailingSlash: false, // Required for proper routing on Vercel
@@ -38,8 +38,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
       navbar: {
         title: 'Physical AI Textbook',
         logo: {
-          alt: 'Physical AI Logo',
-          src: 'img/logo.svg',
+          alt: 'Physical AI Robot Logo',
+          src: 'img/robot-logo.svg',
         },
         items: [
           {
