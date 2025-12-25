@@ -71,7 +71,9 @@ export default function TextbookChapters() {
     <section className={styles.textbookChapters}>
       <div className="container">
         <div className="text--center padding-horiz--md">
-          <h2 className={styles.mainHeading}>Textbook Chapters</h2>
+          <h2 className={styles.mainHeading}>
+            <span className={styles.gradientText}>Textbook Chapters</span>
+          </h2>
           <p className={styles.subHeading}>8 comprehensive modules covering Physical AI & AI Native textbook</p>
         </div>
         <div className="row">

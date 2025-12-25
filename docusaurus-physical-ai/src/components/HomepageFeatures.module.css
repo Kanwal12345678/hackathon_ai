@@ -37,12 +37,19 @@ html[data-theme='dark'] .feature-card {
 
 /* Feature card content styling */
 .feature-card h3 {
-  color: var(--ifm-color-primary);
+  background: linear-gradient(to right, #ec4899, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
   position: relative;
   padding-bottom: 0.75rem;
+  text-shadow:
+    0 0 5px rgba(236, 72, 153, 0.3),
+    0 0 10px rgba(168, 85, 247, 0.2);
 }
 
 .feature-card h3::after {

@@ -10,13 +10,22 @@
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.mainHeading .gradientText {
   background: linear-gradient(to right, #ec4899, #a855f7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
-  text-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
-  position: relative;
+  text-shadow:
+    0 0 8px rgba(236, 72, 153, 0.4),
+    0 0 16px rgba(168, 85, 247, 0.3),
+    0 0 24px rgba(168, 85, 247, 0.2);
+  display: block;
+  font-weight: 800;
 }
 
 .mainHeading::after {
@@ -97,9 +106,17 @@
 .chapterTitle {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #f9fafb;
+  background: linear-gradient(to right, #ec4899, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
   margin-bottom: 1rem;
   line-height: 1.4;
+  text-shadow:
+    0 0 5px rgba(236, 72, 153, 0.3),
+    0 0 10px rgba(168, 85, 247, 0.2);
+  position: relative;
 }
 
 .chapterDescription {
@@ -154,6 +171,10 @@
     font-size: 2rem;
   }
 
+  .mainHeading .gradientText {
+    font-size: 2rem;
+  }
+
   .chapterCard {
     padding: 1rem;
   }
@@ -171,6 +192,10 @@
   }
 
   .mainHeading {
+    font-size: 1.8rem;
+  }
+
+  .mainHeading .gradientText {
     font-size: 1.8rem;
   }
 

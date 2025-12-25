@@ -205,18 +205,17 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   max-width: 100% !important;
 }
 
-/* Style for main headings in docs */
+/* Style for main headings in docs - now with pure white text */
 .docMainContainer h1,
 .docMainContainer h2,
 .docMainContainer h3,
 .docMainContainer h4,
 .docMainContainer h5,
 .docMainContainer h6 {
-  background: linear-gradient(to right, #ec4899, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  background: none !important;
+  text-shadow: none !important;
   position: relative;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
@@ -254,14 +253,14 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   border-radius: 1px;
 }
 
-/* Content styling */
+/* Content styling - now with pure white text */
 .docMainContainer :global(.markdown) {
-  color: #e2e8f0 !important;
+  color: #FFFFFF !important;
 }
 
 .docMainContainer :global(.markdown) p,
 .docMainContainer :global(.markdown) li {
-  color: #cbd5e1 !important;
+  color: #FFFFFF !important;
   line-height: 1.7;
 }
 
@@ -286,6 +285,34 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 
 .docMainContainer :global(.markdown) a:hover::after {
   transform: scaleX(1);
+}
+
+/* Force specific content elements to be pure white */
+.docMainContainer :global(.markdown) h1,
+.docMainContainer :global(.markdown) h2,
+.docMainContainer :global(.markdown) h3,
+.docMainContainer :global(.markdown) h4,
+.docMainContainer :global(.markdown) h5,
+.docMainContainer :global(.markdown) h6,
+.docMainContainer :global(.markdown) p,
+.docMainContainer :global(.markdown) li {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  text-shadow: none !important; /* Remove any text shadow effects */
+}
+
+/* Ensure the white text remains white in both light and dark modes */
+html[data-theme='dark'] .docMainContainer :global(.markdown) h1,
+html[data-theme='dark'] .docMainContainer :global(.markdown) h2,
+html[data-theme='dark'] .docMainContainer :global(.markdown) h3,
+html[data-theme='dark'] .docMainContainer :global(.markdown) h4,
+html[data-theme='dark'] .docMainContainer :global(.markdown) h5,
+html[data-theme='dark'] .docMainContainer :global(.markdown) h6,
+html[data-theme='dark'] .docMainContainer :global(.markdown) p,
+html[data-theme='dark'] .docMainContainer :global(.markdown) li {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  text-shadow: none !important; /* Remove any text shadow effects */
 }
 
 /* Code blocks styling */
@@ -353,10 +380,15 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.025em;
-  color: #F5F3FF; /* Soft off-white */
+  background: linear-gradient(to right, #ec4899, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
   text-shadow:
-    0 0 5px rgba(128, 0, 128, 0.3),    /* subtle purple glow */
-    0 0 10px rgba(128, 0, 128, 0.2);   /* additional subtle purple glow */
+    0 0 8px rgba(236, 72, 153, 0.4),
+    0 0 16px rgba(168, 85, 247, 0.3),
+    0 0 24px rgba(168, 85, 247, 0.2);
   position: relative;
   z-index: 1;
 }

@@ -24,11 +24,10 @@
 .docMainContainer h4,
 .docMainContainer h5,
 .docMainContainer h6 {
-  background: linear-gradient(to right, #ec4899, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  background: none !important;
+  text-shadow: none !important;
   position: relative;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
@@ -66,14 +65,14 @@
   border-radius: 1px;
 }
 
-/* Content styling */
+/* Content styling - now with pure white text */
 .docMainContainer :global(.markdown) {
-  color: #e2e8f0 !important;
+  color: #FFFFFF !important;
 }
 
 .docMainContainer :global(.markdown) p,
 .docMainContainer :global(.markdown) li {
-  color: #cbd5e1 !important;
+  color: #FFFFFF !important;
   line-height: 1.7;
 }
 
