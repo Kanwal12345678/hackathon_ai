@@ -11,8 +11,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'ignore',
   favicon: 'img/robot-favicon.svg',
-  organizationName: 'your-github-username', // Usually your GitHub org/user name.
-  projectName: 'docusaurus-physical-ai', // Usually your repo name.
+  organizationName: 'Kanwal12345678', // Usually your GitHub org/user name.
+  projectName: 'hackathon_ai', // Usually your repo name.
   trailingSlash: false, // Required for proper routing on Vercel
 
   presets: [
@@ -23,7 +23,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/your-github-username/docusaurus-physical-ai/edit/main/',
+          editUrl: 'https://github.com/Kanwal12345678/hackathon_ai/edit/main/',
         },
         blog: false,
         theme: {
@@ -50,7 +50,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             label: 'Textbook',
           },
           {
-            href: 'https://github.com/your-github-username/docusaurus-physical-ai',
+            href: 'https://github.com/Kanwal12345678/hackathon_ai',
             label: 'GitHub',
             position: 'right',
           },
