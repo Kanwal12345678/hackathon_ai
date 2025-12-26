@@ -73,11 +73,11 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/your-github-username/docusaurus-physical-ai',
+                href: 'https://github.com/Kanwal12345678',
               },
               {
                 label: 'LinkedIn',
-                href: 'https://www.linkedin.com/in/kanwal-shahzadi',
+                href: 'https://www.linkedin.com/in/kanwal-shahzadi-b6661b2b9/',
               },
             ],
           },
