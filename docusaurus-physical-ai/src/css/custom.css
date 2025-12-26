@@ -491,6 +491,18 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Ensure proper spacing when scrolling to elements */
+#textbook-chapters {
+  scroll-margin-top: 80px; /* Adjust based on navbar height */
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 996px) {
+  #textbook-chapters {
+    scroll-margin-top: 60px; /* Adjust for mobile navbar height */
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

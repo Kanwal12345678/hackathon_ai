@@ -56,7 +56,7 @@ const TextbookChapters = () => {
 
 
   return (
-    <section className={styles['textbook-chapters-section']}>
+    <section id="textbook-chapters" className={styles['textbook-chapters-section']}>
       <div className={styles['textbook-chapters-container']}>
         {/* Main Heading */}
         <div className={styles['textbook-chapters-heading']}>
