@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import OriginalDocSidebar from '@theme-original/DocSidebar';
 import styles from './styles.module.css';
 
@@ -28,9 +28,13 @@ export default function DocSidebarWrapper(props) {
   };
 
   // Toggle mobile sidebar visibility
-  const toggleMobileSidebar = () => {
-    setIsMobileSidebarOpen(!isMobileSidebarOpen);
-  };
+  const toggleMobileSidebar = useCallback(() => {
+    setIsMobileSidebarOpen(prev => !prev);
+    if (!isMobileSidebarOpen) {
+      // Reset active accordion when opening
+      setActiveAccordion(null);
+    }
+  }, [isMobileSidebarOpen]);
 
   // Close mobile sidebar when clicking outside
   useEffect(() => {
@@ -49,11 +53,52 @@ export default function DocSidebarWrapper(props) {
     };
   }, [isMobileSidebarOpen]);
 
+  // Close sidebar when navigating to a new page
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setIsMobileSidebarOpen(false);
+    };
+
+    // Listen for route changes if router is available
+    if (typeof window !== 'undefined') {
+      // For Docusaurus router
+      if (window.__router__) {
+        window.__router__.events.on('routeChangeComplete', handleRouteChange);
+        return () => {
+          window.__router__.events.off('routeChangeComplete', handleRouteChange);
+        };
+      }
+      // Fallback for window navigation
+      else {
+        window.addEventListener('popstate', handleRouteChange);
+        return () => {
+          window.removeEventListener('popstate', handleRouteChange);
+        };
+      }
+    }
+  }, []);
+
   // Determine if we should show mobile sidebar
   const shouldShowMobile = isMobile && isMobileSidebarOpen;
 
   // For mobile, use custom accordion sidebar
   const { sidebar, sidebarName } = props;
+
+  // Expose toggle function to make it accessible globally
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.toggleMobileTextbookSidebar = toggleMobileSidebar;
+
+      // Also expose a function to check if it's mobile
+      window.isMobileView = () => isMobile;
+
+      // Clean up on unmount
+      return () => {
+        delete window.toggleMobileTextbookSidebar;
+        delete window.isMobileView;
+      };
+    }
+  }, [toggleMobileSidebar, isMobile]);
 
   return (
     <>
@@ -121,7 +166,10 @@ export default function DocSidebarWrapper(props) {
                                 className={`${styles.lessonLink} ${
                                   props.activeDoc?.slug === subItem.id ? styles.active : ''
                                 }`}
-                                onClick={() => setIsMobileSidebarOpen(false)}
+                                onClick={() => {
+                                  setIsMobileSidebarOpen(false);
+                                  setActiveAccordion(null);
+                                }}
                               >
                                 {subItem.label || subItem}
                               </a>
@@ -136,27 +184,6 @@ export default function DocSidebarWrapper(props) {
             ))}
           </div>
         </div>
-      )}
-
-      {/* Mobile menu button to open sidebar */}
-      {isMobile && (
-        <button
-          className="button button--secondary button--sm"
-          onClick={toggleMobileSidebar}
-          style={{
-            position: 'fixed',
-            top: '1rem',
-            left: '1rem',
-            zIndex: 999,
-            background: 'rgba(15, 23, 42, 0.9)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(236, 72, 153, 0.2)',
-            color: '#f472b6',
-          }}
-          aria-label="Open textbook chapters"
-        >
-          📚 Chapters
-        </button>
       )}
 
       {/* Render original sidebar for desktop view */}
