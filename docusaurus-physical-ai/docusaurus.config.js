@@ -50,7 +50,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             label: 'Textbook',
           },
           {
-            href: 'https://github.com/Kanwal12345678/hackathon_ai',
+            href: 'https://github.com/Kanwal12345678',
             label: 'GitHub',
             position: 'right',
           },
